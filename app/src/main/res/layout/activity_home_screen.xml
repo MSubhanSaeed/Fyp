@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreen">
+
+    <!-- Map Fragment -->
+    <!-- Map Fragment (Top Half of the Screen) -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="411dp"
+        android:layout_height="374dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Map Button Container (Top Buttons) -->
+
+    <!-- Satellite Button (Below Map Button Container) -->
+
+    <!-- Draggable Scrollable Sheet (Below Map) -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mapButtonContainer1"
+        android:layout_width="411dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/Light_Silver"
+        app:layout_constraintEnd_toEndOf="@id/map"
+        app:layout_constraintStart_toStartOf="@id/map"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Settings Button (Top-Left) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            android:textColor="@android:color/black"
+            app:backgroundTint="@color/Light_Silver"
+            app:cornerRadius="8dp"
+            app:icon="@drawable/settingmap"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconSize="25dp"
+            app:iconTint="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/blue"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="2dp" />
+
+        <!-- Drop-Down Menu (Center) -->
+        <Spinner
+            android:id="@+id/dropDownMenu"
+            android:layout_width="175dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/dropdown_background"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toStartOf="@id/btnNotification"
+            app:layout_constraintStart_toEndOf="@id/btnSettings"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Notification Button (Top-Right) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            app:cornerRadius="8dp"
+            app:icon="@drawable/bellnotification"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconSize="25dp"
+            app:iconTint="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMapType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:background="@android:color/transparent"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:backgroundTint="@color/Light_Silver"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/satellite"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="25dp"
+        app:iconTint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapButtonContainer1"
+        app:rippleColor="@color/blue"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="2dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/draggableSheet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ListView with ToggleButtons -->
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp" />
+
+            <!-- Switch for Allow Tracking -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/allowTracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allow Tracking" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/white"
+        android:backgroundTint="@color/Light_Silver"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Home Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:singleLine="true"
+            android:text="Home"
+            android:textColor="@android:color/black"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/home"
+            app:iconGravity="top"
+            app:iconPadding="4dp"
+            app:iconTint="@color/black" />
+
+        <!-- Individual Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIndividual"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:singleLine="true"
+            android:text="Individual"
+            android:textColor="@android:color/black"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/person"
+            app:iconGravity="top"
+            app:iconPadding="4dp"
+            app:iconTint="@color/black" />
+
+        <!-- Places Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlaces"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:singleLine="true"
+            android:text="Places"
+            android:textColor="@android:color/black"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/marker"
+            app:iconGravity="top"
+            app:iconPadding="4dp"
+            app:iconTint="@color/black" />
+
+        <!-- Circle Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCircle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:singleLine="true"
+            android:text="Circle"
+            android:textColor="@android:color/black"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/circles"
+            app:iconGravity="top"
+            app:iconPadding="4dp"
+            app:iconTint="@color/black" />
+
+        <!-- Account Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAccount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:singleLine="true"
+            android:text="Account"
+            android:textColor="@android:color/black"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/account"
+            app:iconGravity="top"
+            app:iconPadding="4dp"
+            app:iconTint="@color/black" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

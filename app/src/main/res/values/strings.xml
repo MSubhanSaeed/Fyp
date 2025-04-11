@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Map_Project</string>
+    <string-array name="dropdown_items">
+        <item>Office </item>
+        <item>School</item>
+        <item>University</item>
+    </string-array>
+</resources>
