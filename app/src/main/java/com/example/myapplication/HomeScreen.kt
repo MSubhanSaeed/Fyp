@@ -16,7 +16,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.myapp.LocationScreen
 import com.example.myapplication.databinding.ActivityHomeScreenBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -81,7 +80,7 @@ class HomeScreen : AppCompatActivity(), OnMapReadyCallback {
         }
         binding.btnAccount.setOnClickListener {
             // Create an Intent to start HomeActivity
-            val intent = Intent(this, AccountScreen::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
         // Initialize FusedLocationProviderClient

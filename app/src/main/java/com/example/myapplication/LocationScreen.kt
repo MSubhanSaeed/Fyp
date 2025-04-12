@@ -22,7 +22,7 @@ class LocationScreen : AppCompatActivity() {
         binding.btnHome.setOnClickListener { navigateTo(HomeScreen::class.java) }
         binding.btnIndividual.setOnClickListener { navigateTo(IndividualScreen::class.java) }
         binding.btnCircle.setOnClickListener { navigateTo(CircleScreen::class.java) }
-        binding.btnAccount.setOnClickListener { navigateTo(AccountScreen::class.java) }
+        binding.btnAccount.setOnClickListener { navigateTo(SettingsActivity::class.java) }
 
         // Sample Pakistani cities
         val pakistaniCities = listOf(

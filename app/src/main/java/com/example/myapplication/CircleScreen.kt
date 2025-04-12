@@ -48,7 +48,17 @@ class CircleScreen : AppCompatActivity() {
         // Set up the account button click listener
         binding.btnAccount.setOnClickListener {
             // Create an Intent to start AccountScreen
-            val intent = Intent(this, AccountScreen::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.creategrp.setOnClickListener {
+            val intent = Intent(this, JoinCircleScreen::class.java)
+            startActivity(intent)
+        }
+
+        // Navigate to CreateCircleScreen when "Create Circle" button is clicked
+        binding.addgrp.setOnClickListener {
+            val intent = Intent(this, CreateCircleScreen::class.java)
             startActivity(intent)
         }
     }

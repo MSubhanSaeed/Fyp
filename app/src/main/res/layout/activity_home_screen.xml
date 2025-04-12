@@ -153,12 +153,6 @@
                 android:gravity="center">
 
             </LinearLayout>
-
-            <Switch
-                android:id="@+id/allowTracking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Allow Tracking" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

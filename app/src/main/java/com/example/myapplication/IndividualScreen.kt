@@ -113,7 +113,7 @@ class IndividualScreen : AppCompatActivity(), OnMapReadyCallback {
         // Set up the account button click listener
         binding.btnAccount.setOnClickListener {
             // Create an Intent to start AccountScreen
-            val intent = Intent(this, AccountScreen::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
         // Check and request location permissions
